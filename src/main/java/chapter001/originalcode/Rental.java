@@ -1,4 +1,4 @@
-package chapter001.starting04;
+package chapter001.originalcode;
 
 /**
  * 
@@ -35,12 +35,4 @@ public class Rental {
     this.daysRented = daysRented;
   }
 
-  public double getCharge() {
-    return movie.getCharge(getDaysRented());
-  }
-  
-  public int getFrequentRenterPoints() {
-    return movie.getFrequentRenterPoints(getDaysRented());
-  }
-  
 }
