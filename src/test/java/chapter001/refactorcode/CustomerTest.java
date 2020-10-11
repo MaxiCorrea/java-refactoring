@@ -16,7 +16,8 @@ public class CustomerTest {
   
   @Test
   public void statementWithoutMovieRentals() {
-    String expected = "Rental Record for "+DEFAULT_NAME+"\nAmount owed is 0.0\nYou earned 0 frequent renter points";
+    String expected = "Rental Record for "+DEFAULT_NAME+
+        "\nAmount owed is 0.0\nYou earned 0 frequent renter points";
     String actual = customer.statement();
     assertEquals(expected , actual);
   }
@@ -28,6 +29,17 @@ public class CustomerTest {
         "\nAmount owed is 3.0"+
         "\nYou earned 1 frequent renter points";
     customer.addRental(new Rental(new Movie("New Release", Movie.NEW_RELEASE) , 1));
+    String actual = customer.statement();
+    assertEquals(expected , actual);
+  }
+  
+  @Test
+  public void statementNewReleaseTwoDaysRenterMovieRentals() {
+    String expected = "Rental Record for "+DEFAULT_NAME+"\n"+
+        "\tNew Release\t6.0"+
+        "\nAmount owed is 6.0"+
+        "\nYou earned 2 frequent renter points";
+    customer.addRental(new Rental(new Movie("New Release", Movie.NEW_RELEASE) , 2));
     String actual = customer.statement();
     assertEquals(expected , actual);
   }
