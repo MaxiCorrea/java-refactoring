@@ -32,7 +32,7 @@ public class CustomerTest {
     String actual = customer.statement();
     assertEquals(expected , actual);
   }
-  
+   
   @Test
   public void statementNewReleaseTwoDaysRenterMovieRentals() {
     String expected = "Rental Record for "+DEFAULT_NAME+"\n"+
@@ -40,6 +40,17 @@ public class CustomerTest {
         "\nAmount owed is 6.0"+
         "\nYou earned 2 frequent renter points";
     customer.addRental(new Rental(new Movie("New Release", Movie.NEW_RELEASE) , 2));
+    String actual = customer.statement();
+    assertEquals(expected , actual);
+  }
+  
+  @Test
+  public void statementNewReleaseThreeDayRenterMovieRentals() {
+    String expected = "Rental Record for "+DEFAULT_NAME+"\n"+
+        "\tNew Release\t9.0"+
+        "\nAmount owed is 9.0"+
+        "\nYou earned 2 frequent renter points";
+    customer.addRental(new Rental(new Movie("New Release", Movie.NEW_RELEASE) , 3));
     String actual = customer.statement();
     assertEquals(expected , actual);
   }
@@ -56,12 +67,45 @@ public class CustomerTest {
   }
   
   @Test
+  public void statementChildrensTwoDayRenterMovieRentals() {
+    String expected = "Rental Record for "+DEFAULT_NAME+"\n"+
+        "\tChildrens\t1.5"+
+        "\nAmount owed is 1.5"+
+        "\nYou earned 1 frequent renter points";
+    customer.addRental(new Rental(new Movie("Childrens", Movie.CHILDRENS) , 2));
+    String actual = customer.statement();
+    assertEquals(expected , actual);
+  }
+  
+  @Test
+  public void statementChildrensFourDayRenterMovieRentals() {
+    String expected = "Rental Record for "+DEFAULT_NAME+"\n"+
+        "\tChildrens\t3.0"+
+        "\nAmount owed is 3.0"+
+        "\nYou earned 1 frequent renter points";
+    customer.addRental(new Rental(new Movie("Childrens", Movie.CHILDRENS) , 4));
+    String actual = customer.statement();
+    assertEquals(expected , actual);
+  }
+  
+  @Test
   public void statementRegularOneDayRenterMovieRentals() {
     String expected = "Rental Record for "+DEFAULT_NAME+"\n"+
         "\tRegular\t2.0"+
         "\nAmount owed is 2.0"+
         "\nYou earned 1 frequent renter points";
     customer.addRental(new Rental(new Movie("Regular", Movie.REGULAR) , 1));
+    String actual = customer.statement();
+    assertEquals(expected , actual);
+  }
+  
+  @Test
+  public void statementRegularTwoDayRenterMovieRentals() {
+    String expected = "Rental Record for "+DEFAULT_NAME+"\n"+
+        "\tRegular\t2.0"+
+        "\nAmount owed is 2.0"+
+        "\nYou earned 1 frequent renter points";
+    customer.addRental(new Rental(new Movie("Regular", Movie.REGULAR) , 2));
     String actual = customer.statement();
     assertEquals(expected , actual);
   }
