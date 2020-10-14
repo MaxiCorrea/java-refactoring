@@ -3,7 +3,11 @@ package chapter001.refactorcode;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-
+/**
+ * 
+ * @author mxcorrea
+ *
+ */
 public class CustomerTest {
 
   private static final String DEFAULT_NAME = "Maximiliano";
@@ -110,5 +114,41 @@ public class CustomerTest {
     assertEquals(expected , actual);
   }
   
+  @Test
+  public void statementRegularThreeDayRenterMovieRentals() {
+    String expected = "Rental Record for "+DEFAULT_NAME+"\n"+
+        "\tRegular\t3.5"+
+        "\nAmount owed is 3.5"+
+        "\nYou earned 1 frequent renter points";
+    customer.addRental(new Rental(new Movie("Regular", Movie.REGULAR) , 3));
+    String actual = customer.statement();
+    assertEquals(expected , actual);
+  }
+  
+  @Test
+  public void statementRegularTwoDayAndChildrensFourDayRenterMovieRentals() {
+    String expected = "Rental Record for "+DEFAULT_NAME+"\n"+
+        "\tRegular\t2.0\n"+
+        "\tChildrens\t3.0"+
+        "\nAmount owed is 5.0"+
+        "\nYou earned 2 frequent renter points";
+    customer.addRental(new Rental(new Movie("Regular", Movie.REGULAR), 2));
+    customer.addRental(new Rental(new Movie("Childrens", Movie.CHILDRENS), 4));
+    String actual = customer.statement();
+    assertEquals(expected , actual);
+  }
+  
+  @Test
+  public void statementNewReleaseThreeDayAndChildrensFourDayRenterMovieRentals() {
+    String expected = "Rental Record for "+DEFAULT_NAME+"\n"+
+        "\tNew Release\t9.0\n"+
+        "\tChildrens\t3.0"+
+        "\nAmount owed is 12.0"+
+        "\nYou earned 3 frequent renter points";
+    customer.addRental(new Rental(new Movie("New Release", Movie.NEW_RELEASE), 3));
+    customer.addRental(new Rental(new Movie("Childrens", Movie.CHILDRENS), 4));
+    String actual = customer.statement();
+    assertEquals(expected , actual);
+  }
   
 }
