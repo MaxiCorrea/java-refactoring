@@ -65,7 +65,7 @@ public class Customer {
       thisAmount += 2;
       if (rental.getDaysRented() > 2) {
         thisAmount += (daysRented - 2) * 1.5;
-      }
+      } 
     }
     return thisAmount;
   }
