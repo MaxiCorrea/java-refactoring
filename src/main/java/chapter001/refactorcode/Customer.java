@@ -33,22 +33,9 @@ public class Customer {
     int frequentRenterPoints = 0;
     String result = "Rental Record for " + getName() + "\n";
     for (Rental each : rentals) {
-      double thisAmount = 0;
       int priceCode = each.getMovie().getPriceCode();
       int daysRented = each.getDaysRented();
-      if (priceCode == Movie.NEW_RELEASE) {
-        thisAmount += daysRented * 3;
-      } else if (priceCode == Movie.CHILDRENS) {
-        thisAmount += 1.5;
-        if (each.getDaysRented() > 3) {
-          thisAmount += (daysRented - 3) * 1.5;
-        }
-      } else if (priceCode == Movie.REGULAR) {
-        thisAmount += 2;
-        if (each.getDaysRented() > 2) {
-          thisAmount += (daysRented - 2) * 1.5;
-        }
-      }
+      double thisAmount = amountOf(each);
       frequentRenterPoints++;
       if (priceCode == Movie.NEW_RELEASE && daysRented > 1) {
         frequentRenterPoints++;
@@ -62,4 +49,25 @@ public class Customer {
     return result;
   }
 
+  private double amountOf(
+      final Rental rental) {
+    int priceCode = rental.getMovie().getPriceCode();
+    int daysRented = rental.getDaysRented();
+    double thisAmount = 0;
+    if (priceCode == Movie.NEW_RELEASE) {
+      thisAmount += daysRented * 3;
+    } else if (priceCode == Movie.CHILDRENS) {
+      thisAmount += 1.5;
+      if (rental.getDaysRented() > 3) {
+        thisAmount += (daysRented - 3) * 1.5;
+      }
+    } else if (priceCode == Movie.REGULAR) {
+      thisAmount += 2;
+      if (rental.getDaysRented() > 2) {
+        thisAmount += (daysRented - 2) * 1.5;
+      }
+    }
+    return thisAmount;
+  }
+  
 }
