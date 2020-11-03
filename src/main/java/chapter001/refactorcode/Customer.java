@@ -53,21 +53,21 @@ public class Customer {
       final Rental rental) {
     int priceCode = rental.getMovie().getPriceCode();
     int daysRented = rental.getDaysRented();
-    double thisAmount = 0;
+    double result = 0;
     if (priceCode == Movie.NEW_RELEASE) {
-      thisAmount += daysRented * 3;
+      result += daysRented * 3;
     } else if (priceCode == Movie.CHILDRENS) {
-      thisAmount += 1.5;
+      result += 1.5;
       if (rental.getDaysRented() > 3) {
-        thisAmount += (daysRented - 3) * 1.5;
+        result += (daysRented - 3) * 1.5;
       }
     } else if (priceCode == Movie.REGULAR) {
-      thisAmount += 2;
+      result += 2;
       if (rental.getDaysRented() > 2) {
-        thisAmount += (daysRented - 2) * 1.5;
+        result += (daysRented - 2) * 1.5;
       } 
     }
-    return thisAmount;
+    return result;
   }
   
 }
