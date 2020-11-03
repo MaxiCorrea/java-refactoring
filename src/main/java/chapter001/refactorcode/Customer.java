@@ -33,15 +33,12 @@ public class Customer {
     int frequentRenterPoints = 0;
     String result = "Rental Record for " + getName() + "\n";
     for (Rental each : rentals) {
-      int priceCode = each.getMovie().getPriceCode();
-      int daysRented = each.getDaysRented();
-      double thisAmount = each.getCharge();
       frequentRenterPoints++;
-      if (priceCode == Movie.NEW_RELEASE && daysRented > 1) {
+      if (each.getMovie().getPriceCode() == Movie.NEW_RELEASE && each.getDaysRented() > 1) {
         frequentRenterPoints++;
       }
-      result += "\t" + each.getMovie().getTitle() + "\t" + thisAmount + "\n";
-      totalAmount += thisAmount;
+      result += "\t" + each.getMovie().getTitle() + "\t" + each.getCharge() + "\n";
+      totalAmount += each.getCharge();
     }
 
     result += "Amount owed is " + totalAmount + "\n";
