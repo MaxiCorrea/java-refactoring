@@ -35,7 +35,7 @@ public class Customer {
     for (Rental each : rentals) {
       int priceCode = each.getMovie().getPriceCode();
       int daysRented = each.getDaysRented();
-      double thisAmount = amountOf(each);
+      double thisAmount = each.getCharge();
       frequentRenterPoints++;
       if (priceCode == Movie.NEW_RELEASE && daysRented > 1) {
         frequentRenterPoints++;
@@ -49,25 +49,4 @@ public class Customer {
     return result;
   }
 
-  private double amountOf(
-      final Rental rental) {
-    int priceCode = rental.getMovie().getPriceCode();
-    int daysRented = rental.getDaysRented();
-    double result = 0;
-    if (priceCode == Movie.NEW_RELEASE) {
-      result += daysRented * 3;
-    } else if (priceCode == Movie.CHILDRENS) {
-      result += 1.5;
-      if (rental.getDaysRented() > 3) {
-        result += (daysRented - 3) * 1.5;
-      }
-    } else if (priceCode == Movie.REGULAR) {
-      result += 2;
-      if (rental.getDaysRented() > 2) {
-        result += (daysRented - 2) * 1.5;
-      } 
-    }
-    return result;
-  }
-  
 }

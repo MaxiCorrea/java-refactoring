@@ -35,4 +35,24 @@ public class Rental {
     this.daysRented = daysRented;
   }
 
+  public double getCharge() {
+    int priceCode = getMovie().getPriceCode();
+    int daysRented = getDaysRented();
+    double result = 0;
+    if (priceCode == Movie.NEW_RELEASE) {
+      result += daysRented * 3;
+    } else if (priceCode == Movie.CHILDRENS) {
+      result += 1.5;
+      if (getDaysRented() > 3) {
+        result += (daysRented - 3) * 1.5;
+      }
+    } else if (priceCode == Movie.REGULAR) {
+      result += 2;
+      if (getDaysRented() > 2) {
+        result += (daysRented - 2) * 1.5;
+      } 
+    }
+    return result;
+  }
+
 }
