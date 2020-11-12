@@ -57,5 +57,10 @@ public class Movie {
     }
     return result;
   }
+
+  public int getFrequentRenderPoints(
+      final int daysRented) {
+    return getPriceCode() == Movie.NEW_RELEASE && daysRented > 1 ? 2 : 1;
+  }
   
 }
