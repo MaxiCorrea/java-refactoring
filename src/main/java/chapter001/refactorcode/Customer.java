@@ -33,7 +33,7 @@ public class Customer {
     int frequentRenterPoints = 0;
     String result = "Rental Record for " + getName() + "\n";
     for (Rental each : rentals) {
-      frequentRenterPoints += each.frequentRenterPoints();
+      frequentRenterPoints += each.getFrequentRenterPoints();
       result += "\t" + each.getMovie().getTitle() + "\t" + each.getCharge() + "\n";
       totalAmount += each.getCharge();
     }
