@@ -38,5 +38,24 @@ public class Movie {
       final int priceCode) {
     this.priceCode = priceCode;
   }
+
+  public double getCharge(
+      final int daysRented) {
+    double result = 0;
+    if (getPriceCode() == Movie.NEW_RELEASE) {
+      result += daysRented * 3;
+    } else if (priceCode == Movie.CHILDRENS) {
+      result += 1.5;
+      if (daysRented > 3) {
+        result += (daysRented - 3) * 1.5;
+      }
+    } else if (getPriceCode() == Movie.REGULAR) {
+      result += 2;
+      if (daysRented > 2) {
+        result += (daysRented - 2) * 1.5;
+      } 
+    }
+    return result;
+  }
   
 }
