@@ -13,8 +13,7 @@ public class Customer {
   private String name;
   private List<Rental> rentals;
 
-  public Customer(
-      final String name) {
+  public Customer(final String name) {
     this.name = name;
     this.rentals = new ArrayList<>();
   }
@@ -23,8 +22,7 @@ public class Customer {
     return name;
   }
 
-  public void addRental(
-      final Rental rental) {
+  public void addRental(final Rental rental) {
     rentals.add(rental);
   }
 
@@ -38,6 +36,17 @@ public class Customer {
     return result;
   }
 
+  public String htmlStatement() {
+    String result = "<H1>Rentals for <EM>" + getName() + "</EM></H1><P>\n";
+    for (Rental each : rentals) {
+      result += each.getMovie().getTitle() + " : " + each.getCharge() + "<BR>\n";
+    }
+    result += "<P>You owe <EM>" + getTotalAmount() + "</EM><P>\n";
+    result += "On this rental you earned <EM>" + getTotalFrequentRenterPoints()
+        + "</EM> frequent renter points<P>";
+    return result;
+  }
+
   private double getTotalAmount() {
     double total = 0.0;
     for (Rental each : rentals) {
@@ -45,7 +54,7 @@ public class Customer {
     }
     return total;
   }
-  
+
   private int getTotalFrequentRenterPoints() {
     int total = 0;
     for (Rental each : rentals) {
@@ -53,5 +62,5 @@ public class Customer {
     }
     return total;
   }
-  
+
 }

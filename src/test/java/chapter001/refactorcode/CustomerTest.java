@@ -27,6 +27,14 @@ public class CustomerTest {
   }
 
   @Test
+  public void htmlStatementWithoutMovieRentals() {
+    String expected = "<H1>Rentals for <EM>"+DEFAULT_NAME+"</EM></H1><P>\n" +
+        "<P>You owe <EM>0.0</EM><P>\nOn this rental you earned <EM>0</EM> frequent renter points<P>";
+    String actual = customer.htmlStatement();
+    assertEquals(expected , actual);
+  }
+  
+  @Test
   public void statementNewReleaseOneDayRenterMovieRentals() {
     String expected = "Rental Record for "+DEFAULT_NAME+"\n"+
         "\tNew Release\t3.0"+
@@ -36,7 +44,7 @@ public class CustomerTest {
     String actual = customer.statement();
     assertEquals(expected , actual);
   }
-   
+    
   @Test
   public void statementNewReleaseTwoDaysRenterMovieRentals() {
     String expected = "Rental Record for "+DEFAULT_NAME+"\n"+
