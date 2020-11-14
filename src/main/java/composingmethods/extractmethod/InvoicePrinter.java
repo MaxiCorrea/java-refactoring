@@ -25,10 +25,7 @@ public class InvoicePrinter {
   }
   
   public String print() {
-    String output = "";
-    output += "**************************\n";
-    output += "*****    Invoice    ******\n";
-    output += "**************************\n";
+    String output = printBanner();
     
     for(Item item : items) {
       outstanding += item.getAmount();
@@ -37,6 +34,14 @@ public class InvoicePrinter {
     output += "name : " + name + "\n";
     output += "amount : " + outstanding + "\n";
     return output;
+  }
+  
+  private String printBanner() {
+    String result = "";
+    result += "**************************\n";
+    result += "*****    Invoice    ******\n";
+    result += "**************************\n";
+    return result;
   }
   
 }
