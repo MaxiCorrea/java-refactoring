@@ -26,8 +26,7 @@ public class InvoicePrinter {
       outstanding += item.getAmount();
     }
   
-    output += "name : " + name + "\n";
-    output += "amount : " + outstanding + "\n";
+    output += printDetails(outstanding);
     return output;
   }
   
@@ -36,6 +35,14 @@ public class InvoicePrinter {
     result += "**************************\n";
     result += "*****    Invoice    ******\n";
     result += "**************************\n";
+    return result;
+  }
+  
+  private String printDetails(
+      final double outstanding) {
+    String result = "";
+    result += "name : " + name + "\n";
+    result += "amount : " + outstanding + "\n";
     return result;
   }
   
