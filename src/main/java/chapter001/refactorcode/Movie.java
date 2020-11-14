@@ -12,7 +12,7 @@ public class Movie {
   public static final int CHILDRENS = 2;
 
   private String title;
-  private int priceCode;
+  private Price price;
 
   public Movie(
       final String title, 
@@ -31,12 +31,24 @@ public class Movie {
   }
 
   public int getPriceCode() {
-    return priceCode;
+    return price.getPriceCode();
   }
 
   public void setPriceCode(
       final int priceCode) {
-    this.priceCode = priceCode;
+    if(priceCode == Movie.REGULAR) {
+      price = new RegularPrice();
+      return;
+    }
+    if(priceCode == Movie.NEW_RELEASE) {
+      price = new NewReleasePrice();
+      return;
+     }
+    if(priceCode == Movie.CHILDRENS) {
+      price = new ChildrensPrice();
+      return;
+    }
+    throw new IllegalArgumentException("Invalid price code");
   }
 
   public double getCharge(
@@ -44,7 +56,7 @@ public class Movie {
     double result = 0;
     if (getPriceCode() == Movie.NEW_RELEASE) {
       result += daysRented * 3;
-    } else if (priceCode == Movie.CHILDRENS) {
+    } else if (getPriceCode() == Movie.CHILDRENS) {
       result += 1.5;
       if (daysRented > 3) {
         result += (daysRented - 3) * 1.5;
