@@ -18,7 +18,7 @@ public class Movie {
       final String title, 
       final int priceCode) {
     this.title = title;
-    this.priceCode = priceCode;
+    this.setPriceCode(priceCode);
   }
 
   public String getTitle() {
