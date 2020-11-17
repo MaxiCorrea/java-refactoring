@@ -20,21 +20,24 @@ public class InvoicePrinter {
   
   public String print() {
     String output = printBanner();
-    
-    double outstanding = 0.0;
-    for(Item item : items) {
-      outstanding += item.getAmount();
-    }
-  
+    double outstanding = calculateOutstanding();
     output += printDetails(outstanding);
     return output;
   }
-  
+   
   private String printBanner() {
     String result = "";
     result += "**************************\n";
     result += "*****    Invoice    ******\n";
     result += "**************************\n";
+    return result;
+  }
+  
+  private double calculateOutstanding() {
+    double result = 0.0;
+    for(Item item : items) {
+      result += item.getAmount();
+    }
     return result;
   }
   
