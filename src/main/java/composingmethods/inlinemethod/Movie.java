@@ -10,11 +10,7 @@ public final class Movie {
   }
   
   public int getRating() {
-    return moreThanFiveLateDeliveries() ? 1 : 2;
+    return numberOfLateDeliveries < 5 ? 1 : 2;
   }
-  
-  private boolean moreThanFiveLateDeliveries() {
-    return numberOfLateDeliveries < 5;
-  } 
-  
+   
 }
