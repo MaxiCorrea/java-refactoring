@@ -3,7 +3,7 @@
  * 
  * Motivacion para realizar este refactoring.
  * 
- * a) Un metodo muy largo que necesita algun tipo de comentaria
+ * a) Un metodo muy largo que necesita algun tipo de comentario
  *    en el cuerpo del mismo.
  * 
  * b) Necesidad de reutilizar parte de la funcionacional de un 
