@@ -10,8 +10,7 @@ public final class Invoice {
   }
   
   public final boolean check() {
-    double basePrice = order.getBasePrice();
-    return (basePrice > 1000);
+    return (order.getBasePrice() > 1000);
   }
   
 }
