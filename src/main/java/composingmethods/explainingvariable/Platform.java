@@ -26,8 +26,9 @@ public final class Platform {
   }
 
   public final boolean isSupported() {
-    return (systemName.toUpperCase().indexOf("MAC") > -1)
-        && (browser.toUpperCase().indexOf("IE") > -1);
+    final boolean isMac = systemName.toUpperCase().indexOf("MAC") > -1; 
+    final boolean isIE = browser.toUpperCase().indexOf("IE") > -1;
+    return isMac && isIE;
   }
 
 }
