@@ -40,4 +40,19 @@ public class AccountTest {
     assertEquals(expectedOverdraftCharge, actualOverdraftCharge, 0.0);
   }
   
+  @Test
+  public void bankChargeZeroDaysOverdrawn() {
+    Account account = new Account(DEFAULT, 0);
+    double expectedBankCharge = 4.5;
+    double actualBankCharge = account.bankCharge();
+    assertEquals(expectedBankCharge, actualBankCharge, 0.0);
+  }
+  
+  @Test
+  public void bankChargeTenDaysOverdrawn() {
+    Account account = new Account(PREMIUN, 10);
+    double expectedBankCharge = 17.05;
+    double actualBankCharge = account.bankCharge();
+    assertEquals(expectedBankCharge, actualBankCharge, 0.0);
+  }
 }
