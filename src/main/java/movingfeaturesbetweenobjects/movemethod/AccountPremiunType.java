@@ -1,4 +1,5 @@
 package movingfeaturesbetweenobjects.movemethod;
+
 /**
  * 
  * @author mxcorrea
@@ -7,8 +8,12 @@ package movingfeaturesbetweenobjects.movemethod;
 public class AccountPremiunType implements AccountType {
 
   @Override
-  public boolean isPremium() {
-    return true;
+  public double overdraftCharge(
+      final int daysOverdrawn) {
+    double result = 10;
+    if (daysOverdrawn > 7)
+      result += (daysOverdrawn - 7) * 0.85;
+    return result;
   }
 
 }
