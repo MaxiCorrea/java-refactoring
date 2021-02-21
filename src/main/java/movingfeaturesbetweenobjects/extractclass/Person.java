@@ -8,16 +8,14 @@ package movingfeaturesbetweenobjects.extractclass;
 public final class Person {
 
   private String name;
-  private String officeAreaCode;
-  private String officeNumber;
+  private TelephoneNumber telephone;
 
   public Person(
       final String name, 
       final String officeAreaCode, 
       final String officeNumber) {
     this.name = name;
-    this.officeAreaCode = officeAreaCode;
-    this.officeNumber = officeNumber;
+    this.telephone = new TelephoneNumber(officeAreaCode, officeNumber);
   }
 
   public String getName() {
@@ -25,25 +23,16 @@ public final class Person {
   }
 
   public String getTelephoneNumber() {
-    return ("(" + officeAreaCode + ") " + officeNumber);
+    return telephone.format();
   }
 
   public String getOfficeAreaCode() {
-    return officeAreaCode;
+    return telephone.getOfficeAreaCode();
   }
 
-  public void setOfficeAreaCode(
-      final String arg) {
-    officeAreaCode = arg;
-  }
 
   public String getOfficeNumber() {
-    return officeNumber;
-  }
-
-  public void setOfficeNumber(
-      final String arg) {
-    officeNumber = arg;
+    return telephone.getOfficeNumber();
   }
 
 }
