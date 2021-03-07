@@ -20,8 +20,8 @@ public class Person {
     return name;
   }
   
-  public Department getDepartment() {
-    return department;
+  public Person getManager() {
+    return department.getManager();
   }
   
 }

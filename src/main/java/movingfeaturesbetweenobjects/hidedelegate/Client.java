@@ -8,8 +8,7 @@ public class Client {
 
   public final String queryManagerOf(
       final Person person) {
-    Department department = person.getDepartment();
-    Person manager = department.getManager();
+    Person manager = person.getManager();
     return manager.getName();
   }
   
