@@ -1,4 +1,4 @@
-package movingfeaturesbetweenobjects.removemidleman;
+package movingfeaturesbetweenobjects.removemiddleman;
 /**
  * 
  * @author mxcorrea

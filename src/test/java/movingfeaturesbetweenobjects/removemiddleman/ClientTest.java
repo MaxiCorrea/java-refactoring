@@ -1,4 +1,4 @@
-package movingfeaturesbetweenobjects.removemidleman;
+package movingfeaturesbetweenobjects.removemiddleman;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;

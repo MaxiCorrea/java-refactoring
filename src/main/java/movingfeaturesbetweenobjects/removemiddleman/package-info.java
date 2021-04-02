@@ -5,4 +5,4 @@
  * un tiempo, se vuelve doloroso. La clase de servidor es solo un intermediario, y tal vez sea el
  * momento de que el cliente llame directamente al delegado.
  */
-package movingfeaturesbetweenobjects.removemidleman;
+package movingfeaturesbetweenobjects.removemiddleman;
