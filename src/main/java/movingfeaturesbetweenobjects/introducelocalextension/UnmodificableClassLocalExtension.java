@@ -25,5 +25,13 @@ public final class UnmodificableClassLocalExtension {
         unmodificableClass.getAttribute2() , 
         unmodificableClass.getAttribute1());
   }
+ 
+  public final String getAttribute1() {
+    return unmodificableClass.getAttribute1();
+  }
+  
+  public final String getAttribute2() {
+    return unmodificableClass.getAttribute2();
+  }
   
 }
