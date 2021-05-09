@@ -13,7 +13,7 @@ public final class Order {
     customer = new Customer(customerName);
   }
   
-  public final String getCustomer() {
+  public final String getCustomerName() {
     return customer.getName();
   }
    

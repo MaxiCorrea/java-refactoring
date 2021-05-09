@@ -20,7 +20,7 @@ public final class OrderClient {
       final String customer) {
     int counter = 0;
     for(Order each : orders) 
-      if(each.getCustomer().equals(customer)) 
+      if(each.getCustomerName().equals(customer)) 
         ++counter;
     return counter;
   }
