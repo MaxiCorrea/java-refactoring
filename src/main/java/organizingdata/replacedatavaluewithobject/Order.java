@@ -6,15 +6,15 @@ package organizingdata.replacedatavaluewithobject;
  */
 public final class Order {
 
-  private final String customer;
+  private final Customer customer;
   
   public Order(
-      final String customer) {
-    this.customer = customer;
+      final String customerName) {
+    customer = new Customer(customerName);
   }
   
   public final String getCustomer() {
-    return customer;
+    return customer.getName();
   }
    
 }
