@@ -10,7 +10,7 @@ public final class Order {
   
   public Order(
       final String customerName) {
-    customer = Customer.create(customerName);
+    customer = Customer.getNamed(customerName);
   }
   
   public final String getCustomerName() {

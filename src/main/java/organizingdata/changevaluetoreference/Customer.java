@@ -18,7 +18,7 @@ public final class Customer {
     new Customer("Customer 3").store();
   }
 
-  public static final Customer create(
+  public static final Customer getNamed(
       final String name) {
     return INSTANCES.get(name);
   }
