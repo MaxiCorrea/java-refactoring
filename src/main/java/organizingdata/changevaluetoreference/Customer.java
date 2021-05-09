@@ -20,6 +20,9 @@ public final class Customer {
 
   public static final Customer getNamed(
       final String name) {
+    if(INSTANCES.get(name) == null) {
+      new Customer(name).store();
+    }
     return INSTANCES.get(name);
   }
 
