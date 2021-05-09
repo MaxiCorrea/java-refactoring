@@ -5,7 +5,7 @@ package organizingdata.changevaluetoreference;
  *
  */
 public final class Order {
-
+ 
   private final Customer customer;
   
   public Order(

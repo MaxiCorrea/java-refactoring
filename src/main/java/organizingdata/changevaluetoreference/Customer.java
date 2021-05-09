@@ -1,4 +1,8 @@
 package organizingdata.changevaluetoreference;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 
  * @author mxcorrea
@@ -6,20 +10,32 @@ package organizingdata.changevaluetoreference;
  */
 public final class Customer {
 
+  private static final Map<String, Customer> INSTANCES = new HashMap<>();
+
+  static void loadCustomers() {
+    new Customer("Customer 1").store();
+    new Customer("Customer 2").store();
+    new Customer("Customer 3").store();
+  }
+
   public static final Customer create(
       final String name) {
-    return new Customer(name);
+    return INSTANCES.get(name);
   }
-  
+
   private final String name;
-  
+
   private Customer(
       final String name) {
     this.name = name;
   }
-  
-  public final String getName() { 
+
+  private void store() {
+    INSTANCES.put(name, this);
+  }
+
+  public final String getName() {
     return name;
   }
-  
+
 }
