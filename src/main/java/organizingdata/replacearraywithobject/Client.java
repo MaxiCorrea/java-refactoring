@@ -1,7 +1,5 @@
 package organizingdata.replacearraywithobject;
 
-import static java.lang.Integer.parseInt;
-
 /**
  * 
  * @author mxcorrea
@@ -9,19 +7,19 @@ import static java.lang.Integer.parseInt;
  */
 public final class Client {
 
-  private final String[] data;
+  private final Performance performance;
   
   public Client(
-      final String[] data) {
-    this.data = data;
+      final Performance performance) {
+    this.performance = performance;
   }
   
   public final String getName() {
-    return data[0];
+    return performance.getName();
   }
   
   public final Integer getWins() {
-    return parseInt(data[1]);
+    return performance.getWins();
   }
   
 }

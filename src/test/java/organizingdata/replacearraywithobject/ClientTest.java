@@ -11,7 +11,7 @@ public class ClientTest {
 
   @Test
   public void testPerformanceData() {
-    Client client = new Client( new String[] {"Liverpool","15"});
+    Client client = new Client( new Performance("Liverpool",15));
     String expectedName = "Liverpool";
     assertEquals(expectedName , client.getName());
     Integer expectedWins = 15;
