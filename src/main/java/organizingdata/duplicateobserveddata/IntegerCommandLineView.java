@@ -14,6 +14,11 @@ public final class IntegerCommandLineView {
   private OutputStream stream;
   
   public IntegerCommandLineView(
+      final OutputStream stream){
+    this("",stream);
+  }
+  
+  public IntegerCommandLineView(
       final String value,
       final OutputStream stream){
     this.value = value;

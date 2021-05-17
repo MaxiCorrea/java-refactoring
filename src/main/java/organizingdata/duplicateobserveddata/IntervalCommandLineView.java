@@ -10,55 +10,28 @@ import java.util.Scanner;
  * @author mxcorrea
  *
  */
-public class IntervalCommandLineView {
+public class IntervalCommandLineView implements IntervalDomain.IntervalObserver {
 
   private final IntegerCommandLineView startValue;
   private final IntegerCommandLineView endValue;
   private final IntegerCommandLineView lengthValue;
+  private final IntervalDomain domain;
   private final Scanner keyboard;
 
   public IntervalCommandLineView(
       final OutputStream outputStream, 
       final InputStream inputStream) {
     keyboard = new Scanner(inputStream);
-    startValue = new IntegerCommandLineView("0", outputStream);
-    endValue = new IntegerCommandLineView("0", outputStream);
-    lengthValue = new IntegerCommandLineView("0", outputStream);
-    calculateLength();
+    startValue = new IntegerCommandLineView(outputStream);
+    endValue = new IntegerCommandLineView(outputStream);
+    lengthValue = new IntegerCommandLineView(outputStream);
+    domain = new IntervalDomain(this);
   }
 
-  public void readNewStartValue() {
-    String newValue = keyboard.nextLine();
-    startValue.setValue(newValue);
-    calculateLength();
-  }
-
-  public void readNewEndValue() {
-    String newValue = keyboard.nextLine();
-    endValue.setValue(newValue);
-    calculateLength();
-  }
-  
-  public void readNewLenghtValue() {
-    String newValue = keyboard.nextLine();
-    lengthValue.setValue(newValue);
-    calculateEnd();
-  }
-
-  private void calculateLength() {
-    int start = Integer.parseInt(startValue.getValue());
-    int end = Integer.parseInt(endValue.getValue());
-    int length = end - start;
-    lengthValue.setValue(String.valueOf(length));
-  }
-
-  private void calculateEnd() {
-    int start = Integer.parseInt(startValue.getValue());
-    int length = Integer.parseInt(lengthValue.getValue());
-    int end = start + length;
-    endValue.setValue(String.valueOf(end));
-  }
-
+  public void readNewStartValue() { domain.changeStart(keyboard.nextLine()); }
+  public void readNewEndValue() { domain.changeEnd(keyboard.nextLine()); }
+  public void readNewLenghtValue() { domain.changeLength(keyboard.nextLine()); }
+ 
   public void displayStart() throws IOException {
     startValue.print();
   }
@@ -73,6 +46,14 @@ public class IntervalCommandLineView {
   
   public void close() {
     keyboard.close();
+  }
+
+  @Override
+  public void updateFromDomain(
+      final IntervalDomain domain) {
+    startValue.setValue(String.valueOf(domain.getStart()));
+    endValue.setValue(String.valueOf(domain.getEnd()));
+    lengthValue.setValue(String.valueOf(domain.getLength()));
   }
 
 }
