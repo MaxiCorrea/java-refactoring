@@ -1,4 +1,10 @@
 package organizingdata.unidirectionalassociationtobidirectional;
+
+import static org.apache.commons.lang.builder.EqualsBuilder.reflectionEquals;
+import static org.apache.commons.lang.builder.HashCodeBuilder.reflectionHashCode;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 
  * @author mxcorrea
@@ -6,15 +12,29 @@ package organizingdata.unidirectionalassociationtobidirectional;
  */
 public final class Customer {
 
-  private final String name;
+  private final Set<Order> orderSet;
   
-  public Customer(
-      final String name) {
-    this.name = name;
+  public Customer() {
+    orderSet = new HashSet<>();
   }
   
-  public final String getName() {
-    return name;
+  public final void addOrder(
+      final Order newOrder) {
+    newOrder.setCustomer(this);
+  }
+  
+  Set<Order> friendOrders() {
+    return orderSet;
+  }
+  
+  @Override
+  public boolean equals(Object obj) {
+    return reflectionEquals(this, obj);
+  }
+  
+  @Override
+  public int hashCode() {
+    return reflectionHashCode(this);
   }
   
 }
