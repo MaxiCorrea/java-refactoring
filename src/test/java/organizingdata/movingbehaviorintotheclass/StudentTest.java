@@ -18,13 +18,13 @@ public class StudentTest {
     s.add(new Course ("Smalltalk Programming", false));
     s.add(new Course ("Appreciating Single Malts", true));
     kent.initializeCourses(s);
-    assertEquals(2, kent.getCourses().size());
+    assertEquals(2, kent.numberOfCourses());
     Course refact = new Course ("Refactoring", true);
     kent.addCourse(refact);
     kent.addCourse(new Course ("Brutal Sarcasm",false));
-    assertEquals (4, kent.getCourses().size());
+    assertEquals (4, kent.numberOfCourses());
     kent.removeCourse(refact);
-    assertEquals (3, kent.getCourses().size());
+    assertEquals (3, kent.numberOfCourses());
   }
 
   @Test
@@ -36,10 +36,7 @@ public class StudentTest {
     s.add(new Course ("Functional Programming", true));
     kent.initializeCourses(s);
     int expectedAdvancedCourses = 2;
-    int actualAdvancedCourses = 0;
-      for(Course c : kent.getCourses()) 
-        if(c.isAdvance()) 
-          ++actualAdvancedCourses;
+    int actualAdvancedCourses = kent.numberOfAdvancedCourses();
     assertEquals(expectedAdvancedCourses , actualAdvancedCourses);
   }
   

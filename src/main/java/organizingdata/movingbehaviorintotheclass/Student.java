@@ -26,8 +26,20 @@ public final class Student {
     this.courses.addAll(courses);
   }
   
+  public int numberOfAdvancedCourses() {
+    int advancedCourses = 0;
+    for(Course c : courses) 
+      if(c.isAdvance()) 
+        ++advancedCourses;
+    return advancedCourses;
+  }
+  
   public String getName() {
     return name;
+  }
+  
+  public int numberOfCourses() {
+    return courses.size();
   }
   
   public void addCourse(
