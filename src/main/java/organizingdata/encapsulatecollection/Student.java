@@ -25,7 +25,7 @@ public final class Student {
       final Set<Course> courses) {
     this.courses = courses;
   }
-  
+   
   public Set<Course> getCourses() {
     return this.courses;
   }
