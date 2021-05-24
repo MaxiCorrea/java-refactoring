@@ -18,10 +18,10 @@ public class EmployeeTest {
   }
 
   @Test
-  public void testEnginnerPaymentCreation() {
-    Employee employee = Employee.create(Employee.ENGINNER);
-    assertEquals(Employee.ENGINNER , employee.getPaymentCode());
-    assertTrue(employee instanceof Enginner);
+  public void testEngineerPaymentCreation() {
+    Employee employee = Employee.create(Employee.ENGINEER);
+    assertEquals(Employee.ENGINEER , employee.getPaymentCode());
+    assertTrue(employee instanceof Engineer);
   }
   
   @Test

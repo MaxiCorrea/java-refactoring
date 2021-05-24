@@ -1,4 +1,5 @@
 package organizingdata.replacetypecodewithstateorstrategy;
+
 /**
  * 
  * @author mxcorrea
@@ -6,30 +7,41 @@ package organizingdata.replacetypecodewithstateorstrategy;
  */
 public class Employee {
 
-  public static final Employee create(
-      final int paymentCode) {
-    if(paymentCode == Employee.ENGINNER)
-      return new Enginner();
-    if(paymentCode == Employee.SALESMAN)
-      return new Salesman();
-    if(paymentCode == Employee.MANAGER)
-      return new Manager();
-    throw new IllegalArgumentException("Incorrect type code value");
-  }
-  
-  public static final int ENGINNER = 0;
+  public static final int ENGINEER = 0;
   public static final int SALESMAN = 1;
   public static final int MANAGER = 2;
-  
-  private final int paymentCode;
-  
+
+  private int paymentCode;
+  private int monthlySalary;
+  private int commission;
+  private int bonus;
+
   Employee(
-      final int paymentCode) {
+      final int paymentCode,
+      final int monthlySalary,
+      final int commission ,
+      final int bonus) {
     this.paymentCode = paymentCode;
+    this.monthlySalary = monthlySalary;
+    this.commission = commission;
+    this.bonus = bonus;
   }
-   
+
   public int getPaymentCode() {
     return paymentCode;
   }
-  
+
+  public int payAmount() {
+    switch (getPaymentCode()) {
+      case Employee.ENGINEER:
+        return monthlySalary;
+      case Employee.SALESMAN:
+        return monthlySalary + commission;
+      case Employee.MANAGER:
+        return monthlySalary + bonus;
+      default:
+        throw new RuntimeException("Incorrect Employee");
+    }
+  }
+
 }

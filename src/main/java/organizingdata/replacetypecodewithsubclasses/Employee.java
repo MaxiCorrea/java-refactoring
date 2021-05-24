@@ -8,8 +8,8 @@ public class Employee {
 
   public static final Employee create(
       final int paymentCode) {
-    if(paymentCode == Employee.ENGINNER)
-      return new Enginner();
+    if(paymentCode == Employee.ENGINEER)
+      return new Engineer();
     if(paymentCode == Employee.SALESMAN)
       return new Salesman();
     if(paymentCode == Employee.MANAGER)
@@ -17,7 +17,7 @@ public class Employee {
     throw new IllegalArgumentException("Incorrect type code value");
   }
   
-  public static final int ENGINNER = 0;
+  public static final int ENGINEER = 0;
   public static final int SALESMAN = 1;
   public static final int MANAGER = 2;
   

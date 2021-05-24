@@ -5,15 +5,15 @@ package organizingdata.replacetypecodewithsubclasses;
  * @author mxcorrea
  *
  */
-public final class Enginner extends Employee {
+public final class Engineer extends Employee {
   
-  public Enginner() {
-    super(Employee.ENGINNER);
+  public Engineer() {
+    super(Employee.ENGINEER);
   }
   
   @Override
   public int getPaymentCode() {
-    return Employee.ENGINNER;
+    return Employee.ENGINEER;
   }
 
 }
