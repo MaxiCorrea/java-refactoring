@@ -14,7 +14,7 @@ public class Employee {
       return new Salesman();
     if(paymentCode == Employee.MANAGER)
       return new Manager();
-    return new Employee(paymentCode);
+    throw new IllegalArgumentException("Incorrect type code value");
   }
   
   public static final int ENGINNER = 0;
