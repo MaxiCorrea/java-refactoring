@@ -17,4 +17,8 @@ public final class Employee {
     this.paymentCode = paymentCode;
   }
    
+  public int getPaymentCode() {
+    return paymentCode;
+  }
+  
 }
