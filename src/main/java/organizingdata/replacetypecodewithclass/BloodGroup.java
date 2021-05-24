@@ -20,7 +20,7 @@ public final class BloodGroup {
   
   private final int code;
   
-  public BloodGroup(
+  private BloodGroup(
       final int code) {
     this.code = code;
   }

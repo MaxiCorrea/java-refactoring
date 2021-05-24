@@ -9,14 +9,14 @@ public class PersonTest {
 
   @Test
   public void testBloodGroups() {
-    person = new Person(Person.A);
-    assertEquals(Person.A, person.getBloodGroup());
-    person.setBloodGroup(Person.B);
-    assertEquals(Person.B, person.getBloodGroup());
-    person.setBloodGroup(Person.O);
-    assertEquals(Person.O, person.getBloodGroup());
-    person.setBloodGroup(Person.AB);
-    assertEquals(Person.AB, person.getBloodGroup());
+    person = new Person(BloodGroup.A);
+    assertEquals(BloodGroup.A, person.getBloodGroup());
+    person.setBloodGroup(BloodGroup.B);
+    assertEquals(BloodGroup.B, person.getBloodGroup());
+    person.setBloodGroup(BloodGroup.O);
+    assertEquals(BloodGroup.O, person.getBloodGroup());
+    person.setBloodGroup(BloodGroup.AB);
+    assertEquals(BloodGroup.AB, person.getBloodGroup());
   }
-
+  
 }
