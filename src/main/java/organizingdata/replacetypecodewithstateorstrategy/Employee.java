@@ -7,11 +7,7 @@ package organizingdata.replacetypecodewithstateorstrategy;
  */
 public class Employee {
 
-  public static final int ENGINEER = 0;
-  public static final int SALESMAN = 1;
-  public static final int MANAGER = 2;
-
-  private int paymentCode;
+  private PaymentType paymentType;
   private int monthlySalary;
   private int commission;
   private int bonus;
@@ -21,26 +17,31 @@ public class Employee {
       final int monthlySalary,
       final int commission ,
       final int bonus) {
-    this.paymentCode = paymentCode;
+    this.setPaymentState(paymentCode);
     this.monthlySalary = monthlySalary;
     this.commission = commission;
     this.bonus = bonus;
   }
 
+  public void setPaymentState(
+      final int paymentCode) {
+    paymentType = PaymentType.newType(paymentCode);
+  }
+  
   public int getPaymentCode() {
-    return paymentCode;
+    return paymentType.getTypeCode();
   }
 
   public int payAmount() {
     switch (getPaymentCode()) {
-      case Employee.ENGINEER:
+      case PaymentType.ENGINEER:
         return monthlySalary;
-      case Employee.SALESMAN:
+      case PaymentType.SALESMAN:
         return monthlySalary + commission;
-      case Employee.MANAGER:
+      case PaymentType.MANAGER:
         return monthlySalary + bonus;
       default:
-        throw new RuntimeException("Incorrect Employee");
+        throw new RuntimeException("Incorrect Payment code");
     }
   }
 
