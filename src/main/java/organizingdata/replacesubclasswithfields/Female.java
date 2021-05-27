@@ -4,7 +4,7 @@ package organizingdata.replacesubclasswithfields;
  * @author mxcorrea
  *
  */
-public final class Female extends Person {
+final class Female extends Person {
 
   @Override
   public char getCode() {

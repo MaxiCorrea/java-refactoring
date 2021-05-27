@@ -11,14 +11,14 @@ public class PersonTest {
 
   @Test
   public void testCreationOfObjectMale() {
-    Person male = new Male();
+    Person male = Person.createMale();
     assertEquals('M' , male.getCode());
     assertTrue(male.isMale());
   }
 
   @Test
   public void testCreationOfObjectFemale() {
-    Person female = new Female();
+    Person female = Person.createFemale();
     assertEquals('F' , female.getCode());
     assertFalse(female.isMale());
   }
