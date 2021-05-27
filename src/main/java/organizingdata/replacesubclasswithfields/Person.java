@@ -7,11 +7,11 @@ package organizingdata.replacesubclasswithfields;
 public class Person {
 
   public static Person createMale() {
-    return new Male();
+    return new Person(true, 'M');
   }
   
   public static Person createFemale() {
-    return new Female();
+    return new Person(false, 'F');
   }
   
   private final boolean isMale;
