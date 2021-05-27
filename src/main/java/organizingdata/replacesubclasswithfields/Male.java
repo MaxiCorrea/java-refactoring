@@ -6,6 +6,10 @@ package organizingdata.replacesubclasswithfields;
  */
 final class Male extends Person {
 
+  Male() {
+    super(true, 'M');
+  }
+
   @Override
   public char getCode() {
     return 'M';

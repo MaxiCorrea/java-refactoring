@@ -14,6 +14,16 @@ public abstract class Person {
     return new Female();
   }
   
+  private final boolean isMale;
+  private final char code;
+  
+  Person(
+      final boolean isMale,
+      final char code) {
+    this.isMale = isMale;
+    this.code = code;
+  }
+  
   public abstract char getCode();
   
   public abstract boolean isMale();
