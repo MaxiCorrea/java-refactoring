@@ -29,11 +29,24 @@ public final class HouseRental {
   
   public final double calculateCharge(
       final int rentalDays) {
-    double charge;
-    if (date.isBefore(SUMMER_START) || date.isAfter(SUMMER_END))
-      charge = rentalDays * winterRate + winterServiceCharge;
-     else charge = rentalDays * summerRate;
-    return charge;
+    return notSummer() ? 
+          summerCharge(rentalDays) : 
+          winterCharge(rentalDays);
+  }
+
+  private double summerCharge(
+      final int rentalDays) {
+    return rentalDays * winterRate + winterServiceCharge;
+  }
+  
+  private double winterCharge(
+      final int rentalDays) {
+    return rentalDays * summerRate;
+  }
+
+  private boolean notSummer() {
+    return date.isBefore(SUMMER_START) || 
+           date.isAfter(SUMMER_END);
   }
   
 }
