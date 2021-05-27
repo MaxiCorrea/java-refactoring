@@ -10,14 +10,5 @@ final class Female extends Person {
     super(false, 'F');
   }
 
-  @Override
-  public char getCode() {
-    return 'F';
-  }
-
-  @Override
-  public boolean isMale() {
-    return false;
-  }
   
 }

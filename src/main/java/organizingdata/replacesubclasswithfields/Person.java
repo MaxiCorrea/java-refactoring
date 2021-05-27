@@ -4,7 +4,7 @@ package organizingdata.replacesubclasswithfields;
  * @author mxcorrea
  *
  */
-public abstract class Person {
+public class Person {
 
   public static Person createMale() {
     return new Male();
@@ -24,8 +24,12 @@ public abstract class Person {
     this.code = code;
   }
   
-  public abstract char getCode();
+  public char getCode() {
+    return code;
+  }
   
-  public abstract boolean isMale();
+  public boolean isMale() {
+    return isMale;
+  }
   
 }
