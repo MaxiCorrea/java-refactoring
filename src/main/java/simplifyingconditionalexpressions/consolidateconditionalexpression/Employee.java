@@ -20,9 +20,9 @@ public final class Employee {
   }
   
   public double disabilityAmount() {
-    if (seniority < 2) return 0.0;
-    if (monthsDisabled > 12) return 0.0;
-    if (isPartTime) return 0.0;
+    if (seniority < 2 || monthsDisabled > 12 || isPartTime) {
+      return 0.0;
+    }
     return -1;
   }  
   
