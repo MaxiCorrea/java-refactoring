@@ -20,10 +20,11 @@ public final class Employee {
   }
   
   public double disabilityAmount() {
-    if (seniority < 2 || monthsDisabled > 12 || isPartTime) {
-      return 0.0;
-    }
-    return -1;
+    return isNotEligibleForDisability() ? 0.0 : -1.0;
+  }
+
+  private boolean isNotEligibleForDisability() {
+    return seniority < 2 || monthsDisabled > 12 || isPartTime;
   }  
   
 }
