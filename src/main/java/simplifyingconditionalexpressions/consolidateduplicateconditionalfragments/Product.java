@@ -25,14 +25,8 @@ public final class Product {
   }
 
   public double calculateTotalAndSend() {
-    double total;
-    if (isSpecialDeal()) {
-      total = price * 0.95;
-      sender.send();
-    } else {
-      total = price * 0.98;
-      sender.send();
-    }
+    double total = price * (isSpecialDeal() ?  0.95 :  0.98);
+    sender.send();
     return total;
   }
 
