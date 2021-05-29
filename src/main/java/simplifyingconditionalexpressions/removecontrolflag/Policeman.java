@@ -21,13 +21,12 @@ public final class Policeman {
 
   public final boolean checkSecurity(
       final Collection<People> peopleCollection) {
-    boolean found = false;
     for (People people : peopleCollection) {
-      if (!found) {
-        found = allowedPeopleList.contains(people);
+      if (allowedPeopleList.contains(people)) {
+        return true;
       }
     }
-    return found;
+    return false;
   }
 
 }
