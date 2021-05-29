@@ -16,20 +16,10 @@ public final class Payroll {
     
   public BigDecimal calculatePayAmount(
       final Employee employee) {
-    BigDecimal result;
-    if (employee.isDead())
-      result = deadAmount();
-    else {
-      if (employee.isSeparated())
-        result = separatedAmount();
-      else {
-        if (employee.isRetired())
-          result = retiredAmount();
-        else
-          result = normalPayAmount();
-      } 
-    }
-    return result;
+    if (employee.isDead()) return deadAmount();
+    if (employee.isSeparated()) return separatedAmount();
+    if (employee.isRetired()) return retiredAmount();
+    return normalPayAmount();
   }
 
   private BigDecimal deadAmount() {
