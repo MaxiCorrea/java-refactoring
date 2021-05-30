@@ -32,17 +32,20 @@ public class Employee {
     return paymentType.getTypeCode();
   }
 
+  public int getMonthlySalary() {
+    return monthlySalary;
+  }
+  
+  public int getCommission() {
+    return commission;
+  }
+  
+  public int getBonus() {
+    return bonus;
+  }
+  
   public int payAmount() {
-    switch (getPaymentCode()) {
-      case PaymentType.ENGINEER:
-        return monthlySalary;
-      case PaymentType.SALESMAN:
-        return monthlySalary + commission;
-      case PaymentType.MANAGER:
-        return monthlySalary + bonus;
-      default:
-        throw new RuntimeException("Incorrect Payment code");
-    }
+    return paymentType.payAmount(this);
   }
 
 }

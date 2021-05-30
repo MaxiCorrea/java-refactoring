@@ -11,4 +11,9 @@ public final class SalesmanPaymentState implements PaymentType {
     return PaymentType.SALESMAN;
   }
 
+  @Override
+  public int payAmount(Employee employee) {
+    return employee.getMonthlySalary() + employee.getCommission();
+  }
+
 }

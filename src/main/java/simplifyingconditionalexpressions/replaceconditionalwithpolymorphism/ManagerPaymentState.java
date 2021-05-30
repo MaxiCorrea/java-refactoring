@@ -11,4 +11,10 @@ public final class ManagerPaymentState implements PaymentType {
     return PaymentType.MANAGER;
   }
 
+  @Override
+  public int payAmount(
+      final Employee employee) {
+    return employee.getMonthlySalary() + employee.getBonus();
+  }
+
 }

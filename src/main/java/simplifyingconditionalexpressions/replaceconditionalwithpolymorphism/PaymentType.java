@@ -13,6 +13,8 @@ public interface PaymentType {
   
   int getTypeCode();
 
+  int payAmount(Employee employee);
+  
   static PaymentType newType(
       final int paymentCode) {
     if(paymentCode == ENGINEER) 
@@ -23,4 +25,5 @@ public interface PaymentType {
       return new ManagerPaymentState();
     throw new RuntimeException("Incorrect Payment code");
   }
+
 }
