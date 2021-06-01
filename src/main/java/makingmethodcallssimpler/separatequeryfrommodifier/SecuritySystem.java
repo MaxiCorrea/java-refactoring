@@ -16,13 +16,8 @@ public final class SecuritySystem {
 
   public void sendAlert(
       final String[] people) {
-    for (int i = 0; i < people.length; i++) {
-      if (people[i].equals("Don") || 
-          people[i].equals("John")) {
-        sendAlert();
-        return;
-      }
-    }
+    if (!foundPerson(people).isEmpty())
+      sendAlert();
   }
 
   String foundPerson(
