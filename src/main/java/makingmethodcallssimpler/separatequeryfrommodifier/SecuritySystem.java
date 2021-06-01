@@ -9,23 +9,20 @@ public final class SecuritySystem {
 
   public void checkSecurity(
       final String[] people) {
-    String found = foundMiscreant(people);
+    sendAlert(people);
+    String found = foundPerson(people);
     someLaterCode(found);
   }
 
-  public String foundMiscreant(
+  public void sendAlert(
       final String[] people) {
     for (int i = 0; i < people.length; i++) {
-      if (people[i].equals("Don")) {
+      if (people[i].equals("Don") || 
+          people[i].equals("John")) {
         sendAlert();
-        return "Don";
-      }
-      if (people[i].equals("John")) {
-        sendAlert();
-        return "John";
+        return;
       }
     }
-    return "";
   }
 
   String foundPerson(
@@ -39,12 +36,8 @@ public final class SecuritySystem {
     return "";
   }
   
-  private void sendAlert() {
-
-  }
+  private void sendAlert() {}
 
   private void someLaterCode(
-      final String found) {
-
-  }
+      final String found) {}
 }
