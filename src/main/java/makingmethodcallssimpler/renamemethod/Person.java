@@ -13,10 +13,10 @@ public final class Person {
 
   public Person(
       final String name, 
-      final String phoneNumber,
+      final String officeAreaCode,
       final String officeNumber) {
     this.name = name;
-    this.officeAreaCode = officeNumber;
+    this.officeAreaCode = officeAreaCode;
     this.officeNumber = officeNumber;
   }
 
@@ -24,9 +24,8 @@ public final class Person {
     return name;
   }
   
-  public final String getTelephoneNumber() {
+  public final String getOfficeTelephoneNumber() {
     return String.format("(%s) %s", officeAreaCode, officeNumber);
   }
-
 
 }
