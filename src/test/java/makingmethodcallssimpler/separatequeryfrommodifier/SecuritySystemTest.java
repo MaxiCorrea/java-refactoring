@@ -18,4 +18,11 @@ public class SecuritySystemTest {
     securitySystem.checkSecurity(PERSONS);
   }
 
+  @Test
+  public void testFoundPerson() {
+    SecuritySystem securitySystem = new SecuritySystem();
+    assertFalse(securitySystem.foundPerson(PERSONS).isEmpty());
+    assertTrue(securitySystem.foundPerson(new String[] {}).isEmpty());
+  }
+
 }

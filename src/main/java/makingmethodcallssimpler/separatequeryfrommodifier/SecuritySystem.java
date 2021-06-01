@@ -28,6 +28,17 @@ public final class SecuritySystem {
     return "";
   }
 
+  String foundPerson(
+      final String[] people){
+    for (int i = 0; i < people.length; i++) {
+      if (people[i].equals("Don") || 
+          people[i].equals("John")) {
+        return people[i];
+      }
+    }
+    return "";
+  }
+  
   private void sendAlert() {
 
   }
