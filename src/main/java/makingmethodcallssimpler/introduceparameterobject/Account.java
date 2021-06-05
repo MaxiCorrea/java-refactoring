@@ -23,20 +23,11 @@ public final class Account {
       final DateRange range) {
     BigDecimal result = BigDecimal.ZERO;
     for(Entry each : entries) {
-      if (includes(range, each)) {
+      if (range.includes(each.getChargeDate())) {
         result = result.add(each.getValue());
       }
     }
     return result;
   }
 
-  private boolean includes(
-      final DateRange range, 
-      final Entry each) {
-    return each.getChargeDate().equals(range.getStart()) ||
-        each.getChargeDate().equals(range.getEnd()) ||
-       (each.getChargeDate().isAfter(range.getStart()) &&
-        each.getChargeDate().isBefore(range.getEnd()));
-  }
-  
 }

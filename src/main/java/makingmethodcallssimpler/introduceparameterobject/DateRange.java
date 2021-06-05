@@ -18,7 +18,15 @@ public final class DateRange {
     this.start = start;
     this.end = end;
   }
-  
+ 
+  public boolean includes(
+      final LocalDate date) {
+    return date.equals(getStart()) || 
+           date.equals(getEnd()) ||
+          (date.isAfter(getStart()) && 
+           date.isBefore(getEnd()));
+  }
+ 
   public LocalDate getStart() {
     return start;
   }
