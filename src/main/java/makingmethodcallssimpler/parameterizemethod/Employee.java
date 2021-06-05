@@ -17,11 +17,16 @@ public final class Employee {
   }
   
   public final void tenPercentRaise() {
-    salary = salary.multiply(BigDecimal.valueOf(1.1));
+    percentRaice(BigDecimal.valueOf(1.1));
   }
   
   public final void fivePercentRaise() {
-    salary = salary.multiply(BigDecimal.valueOf(1.05));
+    percentRaice(BigDecimal.valueOf(1.05));
+  }
+  
+  public final void percentRaice(
+      final BigDecimal percent) {
+    salary = salary.multiply(percent);
   }
   
   public final BigDecimal getSalary() {
