@@ -1,6 +1,7 @@
 package makingmethodcallssimpler.replaceparameterwithexplicitmethods;
 
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 import org.junit.Test;
 /**
  * 
@@ -9,31 +10,30 @@ import org.junit.Test;
  */
 public class EmployeeTest {
 
-  private static final int INVALID_CODE_TYPE = -1;
-
+  @Ignore
   @Test(expected = IllegalArgumentException.class)
   public void testCreateInvalidEmployeeType() {
-    Employee.create(INVALID_CODE_TYPE);
+    //Employee.create(INVALID_CODE_TYPE);
     fail("should throw invalid argument exception for invalid code type");
   }
 
   @Test
   public void testCreateEngineerObjectInstance() {
-    Employee engineer = Employee.create(Employee.ENGINEER);
+    Employee engineer = Employee.createIngineer();
     assertNotNull(engineer);
     assertTrue(engineer instanceof Engineer);
   }
   
   @Test
   public void testCreateSysAdminObjectInstance() {
-    Employee sysadmin = Employee.create(Employee.SYSADMIN);
+    Employee sysadmin = Employee.createSysAdmin();
     assertNotNull(sysadmin);
     assertTrue(sysadmin instanceof SysAdmin);
   }
   
   @Test
   public void testCreateSalesmanObjectInstance() {
-    Employee salesman = Employee.create(Employee.SALESMAN);
+    Employee salesman = Employee.createSalesman();
     assertNotNull(salesman);
     assertTrue(salesman instanceof Salesman);
   }
