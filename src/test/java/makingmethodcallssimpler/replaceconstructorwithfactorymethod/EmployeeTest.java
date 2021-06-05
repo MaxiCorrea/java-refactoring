@@ -37,5 +37,18 @@ public class EmployeeTest {
     assertTrue(employee instanceof SysAdmin);
   }
 
+  @Test
+  public void testCreateSalesmanInstanceWithExplicitMethod() {
+    Employee employee = Employee.createSalesman();
+    assertNotNull(employee);
+    assertTrue(employee instanceof Salesman);
+  }
+  
+  @Test
+  public void testCreateSysAdminInstanceWithExplicitMethod() {
+    Employee employee = Employee.createSysAdmin();
+    assertNotNull(employee);
+    assertTrue(employee instanceof SysAdmin);
+  }
   
 }

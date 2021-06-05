@@ -29,6 +29,14 @@ public class Employee {
     }
   }
   
+  public static final Employee createSalesman() {
+    return new Salesman();
+  }
+  
+  public static final Employee createSysAdmin() {
+    return new SysAdmin();
+  }
+  
   private final int typeCode;
   
   Employee(
