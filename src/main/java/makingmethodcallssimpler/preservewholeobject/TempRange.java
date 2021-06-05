@@ -25,6 +25,12 @@ public final class TempRange {
     }
   }
   
+  public boolean includes(
+      final TempRange otherRange) {
+    return (otherRange.getLow() >= this.getLow() && 
+            otherRange.getHigh() <= this.getHigh());
+  }
+  
   public int getLow() {
     return low;
   }
