@@ -24,11 +24,11 @@ public class AccountTest {
   public void testFlowBetweenDates() {
     Account account = new Account(ENTRIES);
     BigDecimal expected = new BigDecimal("15");
-    BigDecimal actual = account.getFlowBetween(LocalDate.of(2020, 1, 1), LocalDate.of(2020, 1, 5));
+    BigDecimal actual = account.getFlowBetween(new DateRange(LocalDate.of(2020, 1, 1), LocalDate.of(2020, 1, 5)));
     assertEquals(expected, actual); 
     
     expected = new BigDecimal("9");
-    actual = account.getFlowBetween(LocalDate.of(2020, 1, 2), LocalDate.of(2020, 1, 4));
+    actual = account.getFlowBetween(new DateRange(LocalDate.of(2020, 1, 2), LocalDate.of(2020, 1, 4)));
     assertEquals(expected, actual);
   }
 

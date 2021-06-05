@@ -1,7 +1,6 @@
 package makingmethodcallssimpler.introduceparameterobject;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -20,25 +19,24 @@ public final class Account {
     this.entries.addAll(entries);
   }
   
-  @Deprecated
-  public final BigDecimal getFlowBetween (
-      final LocalDate start, 
-      final LocalDate end) {
-    return getFlowBetween(new DateRange(start, end));
-  }
-  
   public final BigDecimal getFlowBetween (
       final DateRange range) {
     BigDecimal result = BigDecimal.ZERO;
     for(Entry each : entries) {
-      if (each.getChargeDate().equals(range.getStart()) ||
-          each.getChargeDate().equals(range.getEnd()) ||
-         (each.getChargeDate().isAfter(range.getStart()) &&
-          each.getChargeDate().isBefore(range.getEnd()))) {
+      if (includes(range, each)) {
         result = result.add(each.getValue());
       }
     }
     return result;
+  }
+
+  private boolean includes(
+      final DateRange range, 
+      final Entry each) {
+    return each.getChargeDate().equals(range.getStart()) ||
+        each.getChargeDate().equals(range.getEnd()) ||
+       (each.getChargeDate().isAfter(range.getStart()) &&
+        each.getChargeDate().isBefore(range.getEnd()));
   }
   
 }
