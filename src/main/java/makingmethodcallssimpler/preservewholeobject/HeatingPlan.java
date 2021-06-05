@@ -14,9 +14,9 @@ public final class HeatingPlan {
   }
   
   public boolean withinRange (
-      final int low, 
-      final int high) {
-    return (low >= range.getLow() && high <= range.getHigh());
+      final TempRange otherRange) {
+    return (otherRange.getLow() >= this.range.getLow() && 
+            otherRange.getHigh() <= this.range.getHigh());
   }
 
   public TempRange getTempRange() {

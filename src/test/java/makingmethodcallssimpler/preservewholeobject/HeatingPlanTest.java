@@ -13,8 +13,8 @@ public class HeatingPlanTest {
   public void testWithinRange() {
     TempRange range = new TempRange(10,30);
     HeatingPlan heatingPlan = new HeatingPlan(range);
-    assertTrue(heatingPlan.withinRange(15, 20));
-    assertFalse(heatingPlan.withinRange(9, 50));
+    assertTrue(heatingPlan.withinRange(new TempRange(15, 20)));
+    assertFalse(heatingPlan.withinRange(new TempRange(9, 50)));
   }
 
 }

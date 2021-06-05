@@ -15,9 +15,7 @@ public final class Room {
   
   public boolean withinPlan(
       final HeatingPlan plan) {
-    int low = daysTempRange().getLow();
-    int high = daysTempRange().getHigh();
-    return plan.withinRange(low, high);
+    return plan.withinRange(daysTempRange());
   }
 
   private TempRange daysTempRange() {
