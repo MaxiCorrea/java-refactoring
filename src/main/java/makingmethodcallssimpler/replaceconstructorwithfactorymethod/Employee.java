@@ -20,6 +20,15 @@ public class Employee {
     throw new IllegalArgumentException("Invalida Type Code");
   }
   
+  public static final Employee create(
+      final String className) {
+    try {
+      return (Employee) Class.forName(className).getDeclaredConstructor().newInstance();
+    } catch(Exception ex) {
+      throw new IllegalArgumentException("Invalida Class Name");
+    }
+  }
+  
   private final int typeCode;
   
   Employee(
