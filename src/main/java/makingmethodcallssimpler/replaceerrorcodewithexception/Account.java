@@ -25,6 +25,18 @@ public final class Account {
     return 0;
   }
   
+  public final void withdrawUncheckedException(
+      final BigDecimal amount) {
+    checkAmountForWithdrawOperation(amount);
+    balance = balance.subtract(amount);
+  }
+  
+  private void checkAmountForWithdrawOperation(
+      final BigDecimal amount) {
+    if(balance.compareTo(amount) < 0) 
+      throw new IllegalArgumentException("balance < amount");
+  }
+  
   public BigDecimal getBalance() {
     return balance;
   }

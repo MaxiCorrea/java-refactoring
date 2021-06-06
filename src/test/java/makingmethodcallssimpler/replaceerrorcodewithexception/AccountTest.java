@@ -27,5 +27,19 @@ public class AccountTest {
     BigDecimal expectedBalance = new BigDecimal("5");
     assertEquals(expectedBalance , account.getBalance());
   }
-  
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testWithdrawInvalidAmountUncheckedException() {
+    Account account = new Account(new BigDecimal("10"));
+    account.withdrawUncheckedException(new BigDecimal("20"));
+  }
+
+  @Test
+  public void testWithdrawValidAmountUncheckedException() {
+    Account account = new Account(new BigDecimal("10"));
+    account.withdrawUncheckedException(new BigDecimal("5"));
+    BigDecimal expectedBalance = new BigDecimal("5");
+    assertEquals(expectedBalance , account.getBalance());
+  }
+
 }
