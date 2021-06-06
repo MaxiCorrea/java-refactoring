@@ -13,8 +13,8 @@ public final class Container {
     item = new Item(itemValue);
   }
   
-  public Object getItemValue() {
-    return item.getObj();
+  public String getItemValue() {
+    return (String) item.getObj();
   }
   
 }
