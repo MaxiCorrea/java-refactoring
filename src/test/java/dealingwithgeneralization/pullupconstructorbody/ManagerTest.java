@@ -12,8 +12,8 @@ public class ManagerTest {
   @Test
   public void testManagerInstance() {
     Manager manager = new Manager("Max", 1, 4);
-    assertEquals("Max", manager.name);
-    assertEquals(1 , manager.id);
+    assertEquals("Max", manager.getName());
+    assertEquals(1 , manager.getId());
     assertEquals(4 , manager.getGrade());
   }
 
