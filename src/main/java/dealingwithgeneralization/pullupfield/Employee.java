@@ -4,8 +4,17 @@ package dealingwithgeneralization.pullupfield;
  * @author mxcorrea
  *
  */
-public abstract class Employee {
+public class Employee {
  
-  public abstract String getName();
+  private final String name;
+  
+  public Employee(
+      final String name) {
+    this.name = name;
+  }
+  
+  public String getName() {
+    return name;
+  }
   
 }

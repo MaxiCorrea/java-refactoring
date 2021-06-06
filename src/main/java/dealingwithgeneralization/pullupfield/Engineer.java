@@ -6,16 +6,9 @@ package dealingwithgeneralization.pullupfield;
  */
 public final class Engineer extends Employee {
   
-  private final String name;
-  
   public Engineer(
       final String name) {
-    this.name = name;
+    super(name);
   }
-  
-  @Override
-  public String getName() {
-    return name;
-  }
-  
+    
 }
