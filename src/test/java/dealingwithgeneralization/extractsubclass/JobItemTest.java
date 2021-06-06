@@ -21,7 +21,7 @@ public class JobItemTest {
 
   @Test
   public void theUnitPriceForAJobWithAnEmployee() {
-    JobItem item = new JobItem(300, 2, true, EMPLOYEE_STUB);
+    JobItem item = new LaborItem(300, 2, true, EMPLOYEE_STUB);
     int expectedUnitPrice = 10;
     int actualUnitPrice = item.getUnitPrice();
     assertEquals(expectedUnitPrice , actualUnitPrice);
@@ -37,7 +37,7 @@ public class JobItemTest {
 
   @Test
   public void theTotalPriceForAJobWithAnEmployee() {
-    JobItem item = new JobItem(300, 2, true, EMPLOYEE_STUB);
+    JobItem item = new LaborItem(300, 2, true, EMPLOYEE_STUB);
     int expectedTotalPrice = 20;
     int actualTotalPrice = item.getTotalPrice();
     assertEquals(expectedTotalPrice, actualTotalPrice);
