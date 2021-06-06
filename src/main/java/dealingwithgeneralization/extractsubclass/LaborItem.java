@@ -6,12 +6,22 @@ package dealingwithgeneralization.extractsubclass;
  */
 public final class LaborItem extends JobItem {
 
+  private final Employee employee;
+  
   public LaborItem(
-      final int unitPrice, 
       final int quantity, 
-      final boolean isLabor, 
       final Employee employee) {
-    super(unitPrice, quantity, isLabor, employee);
+    super(0, quantity);
+    this.employee = employee;
+  }
+  
+  @Override
+  public int getUnitPrice(){
+    return employee.getRate();
+  }
+
+  public Employee getEmployee() {
+    return employee;
   }
 
 }
