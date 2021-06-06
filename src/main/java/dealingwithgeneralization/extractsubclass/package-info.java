@@ -1,0 +1,4 @@
+/**
+ * 
+ */
+package dealingwithgeneralization.extractsubclass;
