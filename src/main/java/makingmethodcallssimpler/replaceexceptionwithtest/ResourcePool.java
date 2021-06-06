@@ -18,6 +18,7 @@ public final class ResourcePool {
     allocated = new Stack<>();
   }
   
+  @Deprecated
   public final Resource getResource() {
     try {
       Resource result = available.pop();
@@ -35,7 +36,6 @@ public final class ResourcePool {
         new Resource() : available.pop();
     allocated.push(result);
     return result;
-    
   }
   
 }
