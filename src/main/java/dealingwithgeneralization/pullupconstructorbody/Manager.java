@@ -12,8 +12,7 @@ public class Manager extends Employee {
       final String name ,
       final int id,
       final int grade) {
-    this.name = name;
-    this.id = id;
+    super(name , id);
     this.grade = grade;
   }
   
