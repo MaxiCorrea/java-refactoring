@@ -31,14 +31,11 @@ public final class ResourcePool {
   }
   
   public final Resource getResourceNotException() {
-    if(available.isEmpty()) {
-      Resource result = new Resource();
-      allocated.push(result);
-      return result;
-    }
-    Resource result = available.pop();
+    Resource result = available.isEmpty() ? 
+        new Resource() : available.pop();
     allocated.push(result);
     return result;
+    
   }
   
 }
