@@ -18,23 +18,34 @@ public final class Account {
   
   public final int withdraw(
       final BigDecimal amount) {
-    if(balance.compareTo(amount) < 0) {
+    if(balance.compareTo(amount) < 0) 
       return -1;
-    } 
     balance = balance.subtract(amount);
     return 0;
   }
   
   public final void withdrawUncheckedException(
       final BigDecimal amount) {
-    checkAmountForWithdrawOperation(amount);
+    checkAmountForWithdrawUncheckedException(amount);
     balance = balance.subtract(amount);
   }
   
-  private void checkAmountForWithdrawOperation(
+  public final void withdrawCheckedException(
+      final BigDecimal amount) throws InvalidWithdrawException {
+    checkAmountForWithdrawCheckedException(amount);
+    balance = balance.subtract(amount);
+  }
+  
+  private void checkAmountForWithdrawUncheckedException(
       final BigDecimal amount) {
     if(balance.compareTo(amount) < 0) 
       throw new IllegalArgumentException("balance < amount");
+  }
+  
+  private void checkAmountForWithdrawCheckedException(
+      final BigDecimal amount) throws InvalidWithdrawException {
+    if(balance.compareTo(amount) < 0) 
+      throw new InvalidWithdrawException("balance < amount");
   }
   
   public BigDecimal getBalance() {

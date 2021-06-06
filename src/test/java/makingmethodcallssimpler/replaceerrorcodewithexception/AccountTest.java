@@ -14,7 +14,7 @@ public class AccountTest {
   public void testWithdrawInvalidAmount() {
     Account account = new Account(new BigDecimal("10"));
     int expectedErrorCode = -1;
-    assertEquals(expectedErrorCode , account.withdraw(new BigDecimal("20")));
+    assertEquals(expectedErrorCode, account.withdraw(new BigDecimal("20")));
     BigDecimal expectedBalance = new BigDecimal("10");
     assertEquals(expectedBalance , account.getBalance());
   }
@@ -23,7 +23,7 @@ public class AccountTest {
   public void testWithdrawValidAmount() {
     Account account = new Account(new BigDecimal("10"));
     int expectedErrorCode = 0;
-    assertEquals(expectedErrorCode , account.withdraw(new BigDecimal("5")));
+    assertEquals(expectedErrorCode, account.withdraw(new BigDecimal("5")));
     BigDecimal expectedBalance = new BigDecimal("5");
     assertEquals(expectedBalance , account.getBalance());
   }
@@ -42,4 +42,18 @@ public class AccountTest {
     assertEquals(expectedBalance , account.getBalance());
   }
 
+  @Test(expected = InvalidWithdrawException.class)
+  public void testWithdrawInvalidAmountCheckedException() throws InvalidWithdrawException {
+    Account account = new Account(new BigDecimal("10"));
+    account.withdrawCheckedException(new BigDecimal("20"));
+  }
+
+  @Test
+  public void testWithdrawValidAmountCheckedException() throws InvalidWithdrawException {
+    Account account = new Account(new BigDecimal("10"));
+    account.withdrawCheckedException(new BigDecimal("5"));
+    BigDecimal expectedBalance = new BigDecimal("5");
+    assertEquals(expectedBalance , account.getBalance());
+  }
+  
 }
