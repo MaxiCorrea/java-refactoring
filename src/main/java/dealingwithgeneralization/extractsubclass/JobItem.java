@@ -12,6 +12,15 @@ public class JobItem {
   private final Employee employee;
   
   public JobItem(
+      final int unitPrice,
+      final int quantity) {
+    this.unitPrice = unitPrice;
+    this.quantity = quantity;
+    this.isLabor = false;
+    this.employee = null;
+  }
+  
+  protected JobItem(
       final int unitPrice, 
       final int quantity, 
       final boolean isLabor,
