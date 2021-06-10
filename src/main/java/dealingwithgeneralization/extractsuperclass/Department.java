@@ -25,7 +25,7 @@ public class Department extends Party {
     return headCount;
   }
   
-  public BigDecimal getTotalAnnualCost() {
+  public BigDecimal getAnnualCost() {
     return totalAnnualCost;
   }
 

@@ -16,7 +16,7 @@ public class DepartmentTest {
     Department department = new Department("Alfred", 58, BigDecimal.TEN);
     assertEquals("Alfred", department.getName());
     assertEquals(58, department.getHeadCount());  
-    assertEquals(BigDecimal.TEN, department.getTotalAnnualCost());
+    assertEquals(BigDecimal.TEN, department.getAnnualCost());
   }
 
 }
