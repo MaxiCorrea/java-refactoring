@@ -7,9 +7,8 @@ import java.math.BigDecimal;
  * @author mxcorrea
  *
  */
-public class Department {
+public class Department extends Party {
 
-  private final String name;
   private final int headCount;
   private final BigDecimal totalAnnualCost;  
    
@@ -17,15 +16,11 @@ public class Department {
       final String name,
       final int headCount,
       final BigDecimal totalAnnualCost) {
-    this.name = name;
+    super(name);
     this.headCount = headCount;
     this.totalAnnualCost = totalAnnualCost;
   }
-  
-  public String getName() {
-    return name;
-  }
-  
+   
   public int getHeadCount() {
     return headCount;
   }
