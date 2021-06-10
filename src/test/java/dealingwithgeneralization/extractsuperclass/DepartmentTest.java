@@ -15,7 +15,7 @@ public class DepartmentTest {
   public void testDepartmentConstructor() {
     Department department = new Department("Alfred", 58, BigDecimal.TEN);
     assertEquals("Alfred", department.getName());
-    assertEquals(58, department.getHeadCount());
+    assertEquals(58, department.getHeadCount());  
     assertEquals(BigDecimal.TEN, department.getTotalAnnualCost());
   }
 

@@ -11,7 +11,7 @@ public class Department {
 
   private final String name;
   private final int headCount;
-  private final BigDecimal totalAnnualCost;
+  private final BigDecimal totalAnnualCost;  
    
   public Department(
       final String name,
