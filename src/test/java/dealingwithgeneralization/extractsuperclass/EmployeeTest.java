@@ -16,7 +16,7 @@ public class EmployeeTest {
     Employee employee = new Employee(1, "Maxpower", new BigDecimal("123"));
     assertEquals(1, employee.getId());
     assertEquals("Maxpower", employee.getName());
-    assertEquals(new BigDecimal("123"), employee.getAnualCost());
+    assertEquals(new BigDecimal("123"), employee.getAnnualCost());
   }
 
 }

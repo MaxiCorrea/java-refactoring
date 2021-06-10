@@ -25,7 +25,7 @@ public class Employee extends Party {
     return id;
   }
    
-  public BigDecimal getAnualCost() {
+  public BigDecimal getAnnualCost() {
     return anualCost;
   }
 }

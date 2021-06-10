@@ -1,4 +1,7 @@
 package dealingwithgeneralization.extractsuperclass;
+
+import java.math.BigDecimal;
+
 /**
  * 
  * @author mxcorrea
@@ -17,4 +20,5 @@ public abstract class Party {
     return name;
   }
   
+  public abstract BigDecimal getAnnualCost();
 }
