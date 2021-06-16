@@ -5,7 +5,7 @@ package dealingwithgeneralization.extractinterface;
  * @author mxcorrea
  *
  */
-public class Employee {
+public class Employee implements Billable {
 
   private int rate;
   private String name;

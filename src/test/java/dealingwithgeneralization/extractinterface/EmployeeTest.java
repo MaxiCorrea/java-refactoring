@@ -21,4 +21,13 @@ public class EmployeeTest {
     assertTrue(employee.hasSpecialSkill());
   }
 
+  @Test
+  public void testBillableObject() {
+    Billable employee = new Employee(12,"Max",true);
+    int expectedRate = 12;
+    int actualRate = employee.getRate();
+    assertEquals(expectedRate, actualRate);
+    assertTrue(employee.hasSpecialSkill());
+  }
+  
 }

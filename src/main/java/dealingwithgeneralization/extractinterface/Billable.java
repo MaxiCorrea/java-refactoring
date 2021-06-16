@@ -6,4 +6,8 @@ package dealingwithgeneralization.extractinterface;
  */
 public interface Billable {
 
+  int getRate();
+
+  boolean hasSpecialSkill();
+
 }
