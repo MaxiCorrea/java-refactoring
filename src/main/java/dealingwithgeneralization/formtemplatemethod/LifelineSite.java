@@ -4,7 +4,7 @@ package dealingwithgeneralization.formtemplatemethod;
  * @author mxcorrea
  *
  */
-public class LifelineSite extends Site {
+public final class LifelineSite extends Site {
 
   public LifelineSite(
       final int unit ,
@@ -12,18 +12,12 @@ public class LifelineSite extends Site {
     super(unit, rate);
   }
   
-  @Override
-  public double calculateBillableAmount() {
-    double base = getBaseAmount();
-    double tax = getTaxtAmount(base);
-    return base + tax;
-  }
-
   public double getBaseAmount() {
     return getUnit() * getRate();
   }
   
-  public double getTaxtAmount(double base) {
+  public double getTaxAmount(
+      final double base) {
     return base * Site.TAX_RATE;
   }
 

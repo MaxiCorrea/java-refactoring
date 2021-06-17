@@ -18,7 +18,15 @@ public abstract class Site {
     this.rate = rate;
   }
  
-  abstract double calculateBillableAmount();
+  public final double calculateBillableAmount() {
+    double base = getBaseAmount();
+    double tax = getTaxAmount(base); 
+    return base + tax;
+  }
+
+  abstract double getTaxAmount(double base);
+
+  abstract double getBaseAmount();
 
   public int getUnit() {
     return unit;
