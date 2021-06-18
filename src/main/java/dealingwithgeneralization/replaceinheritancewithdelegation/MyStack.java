@@ -7,17 +7,29 @@ import java.util.Vector;
  * @author mxcorrea
  *
  */
-public class MyStack<E> extends Vector<E>{
-  private static final long serialVersionUID = 1L;
+public final class MyStack<E> {
+
+  private final Vector<E> vector;
+
+  public MyStack() {
+    vector = new Vector<>();
+  }
 
   public void push(E element) {
-    super.insertElementAt(element, 0);
+    vector.insertElementAt(element, 0);
   }
-  
+
   public E pop() {
-    E element = super.elementAt(0);
-    super.remove(0);
+    E element = vector.elementAt(0);
+    vector.remove(0);
     return element;
   }
-  
+
+  public boolean isEmpty() {
+    return vector.isEmpty();
+  }
+
+  public int size() {
+    return vector.size();
+  }
 }
