@@ -1,5 +1,5 @@
 package bigrefactorings.teaseapartinheritance.refactor.presentation;
 
-public class SingleActivePresentationStyle extends PresentationStyle {
+public class TabularPresentationStyle extends PresentationStyle {
 
 }
